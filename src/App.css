@@ -1,32 +1,78 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  align-items: baseline;
+  background: black;
+  padding: 1.5rem;
+}
+
+#header a.logo {
+  font-size: 1.2rem;
+}
+
+#header a {
+  text-decoration: none;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#menu a {
+  padding: 1rem;
+  margin: 0 0.25rem;
+  transition: all 0.15s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#hero {
+  background-image: url("hero.jpg");
+  height: 25rem;
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#hero div {
+  position: relative;
+  top: 6rem;
+  left: 5rem;
+  width: 25rem;
+  font-size: 1.7rem;
+}
+
+#hero div .button {
+  position: relative;
+  top: 0.5rem;
+}
+
+a.button {
+  background-color: #cc0000;
+  border: 2px solid white;
+  padding: 0.3rem 1rem;
+  color: white;
+  transition: all 0.15s;
+  font-size: 1.3rem;
+}
+
+a.button:hover {
+  cursor: pointer;
+}
+
+#landing {
+  display: flex;
+  padding: 3rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+#landing > div {
+  width: 46%;
+  height: 20rem;
+  -webkit-box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.75);
+  margin: 2%;
 }
