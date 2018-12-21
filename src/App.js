@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
 import Main from "./Main";
-import Header from "./Header";
+import Header from "./header/Header";
 
 import "./App.css";
+import Footer from "./footer/Footer";
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <Main />
+        <Footer />
       </div>
     );
   }

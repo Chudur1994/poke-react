@@ -1,6 +1,6 @@
 import React from "react";
 
-import LandingItem from "./LandingItem";
+import LandingItem from "../LandingItemdingItem";
 
 const Landing = () => {
   return (

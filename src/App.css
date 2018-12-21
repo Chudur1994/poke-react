@@ -64,15 +64,47 @@ a.button:hover {
 #landing {
   display: flex;
   padding: 3rem;
-  width: 100%;
+  max-width: 100rem;
+  margin: auto;
   flex-wrap: wrap;
 }
 
 #landing > div {
-  width: 46%;
+  position: relative;
+  width: 44%;
   height: 20rem;
   -webkit-box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.75);
-  margin: 2%;
+  margin: 3%;
+  transition: all 0.25s;
+  cursor: pointer;
+  background: url(https://via.placeholder.com/1000);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#landing > div:hover {
+  -webkit-box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.9);
+  -moz-box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.9);
+  box-shadow: 0px 1px 15px 1px rgba(0, 0, 0, 0.9);
+}
+
+#landing > div > div {
+  position: absolute;
+  left: 70%;
+  top: 25%;
+}
+
+#landing > div > div > p {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+footer {
+  background: black;
+  padding: 1rem;
+  color: white;
+  text-align: center;
 }
