@@ -1,12 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const LandingItem = props => {
+  const { name } = props;
   return (
     <div>
       <div>
-        <p>{props.name}</p>
-        <Link to={"/" + props.name}>Shop</Link>
+        <p>{name}</p>
+        <NavLink to={"/" + name.toLowerCase()}>Shop</NavLink>
       </div>
     </div>
   );

@@ -1,21 +1,18 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
+import Hero from "./Hero";
 import LandingItem from "./LandingItem";
 
 const Landing = () => {
   return (
     <div>
-      <div id="hero">
-        <div>
-          <p>Shop the latest and take down the Elite 4!</p>
-          <a className="button">Shop</a>
-        </div>
-      </div>
+      <Hero />
       <div id="landing">
-        <LandingItem name="Pokemons" />
-        <LandingItem name="Items" />
-        <LandingItem name="Berries" />
-        <LandingItem name="Moves" />
+        <LandingItem name="Pokemon" />
+        <LandingItem name="Item" />
+        <LandingItem name="Berry" />
+        <LandingItem name="Move" />
       </div>
     </div>
   );
