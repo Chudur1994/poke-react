@@ -12,6 +12,7 @@ const Main = () => {
         path="/catalogue/:category/:type?/:typeOption?"
         component={Catalogue}
       />
+      />
     </Switch>
   );
 };

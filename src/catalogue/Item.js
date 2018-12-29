@@ -1,5 +1,5 @@
 import React from "react";
-import { capitalize } from "lodash";
+import { startCase } from "lodash";
 
 const typeColors = {
   fire: "#EF8038",
@@ -122,7 +122,7 @@ class Item extends React.Component {
     return (
       <div className="item" onClick={this.test}>
         <img className={`${imageType}`} src={image} alt="" />
-        <p className="name">{capitalize(name)}</p>
+        <p className="name">{startCase(name)}</p>
         <div className="item-preview-info">
           {/* if it has types, show it */}
           {types && (

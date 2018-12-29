@@ -201,44 +201,86 @@ a.button:hover {
 }
 
 #landing {
-  display: flex;
   padding: 3rem;
   max-width: 100rem;
-  margin: auto;
-  flex-wrap: wrap;
 }
 
-#landing > div {
+.latest-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.latest-title {
+  font-family: "Raleway", sans-serif;
+  font-size: 2rem;
+  border-bottom: 2px solid #e74c3c;
+}
+
+.latest-info {
+  width: 30%;
+  margin-top: 3%;
+  display: flex;
+  flex-direction: column;
+}
+
+.latest-info .features {
   position: relative;
-  width: 44%;
-  height: 20rem;
-  -webkit-box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.75);
-  margin: 3%;
+  left: 2rem;
+  margin-top: 0.5rem;
+}
+
+.shop-latest-btn {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  align-self: flex-start;
+  margin-top: 1rem;
+  color: white;
+  background: #27ae60;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.latest-info .title {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  border-bottom: 1px solid #f1c40f;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.latest-items {
+  position: relative;
+  width: 50%;
+  height: 25rem;
+  margin: 0 3%;
+  margin-top: 3%;
   transition: all 0.25s;
   cursor: pointer;
-  background: url(https://via.placeholder.com/1000);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  -webkit-box-shadow: 1px 1px 10px 0px rgba(163, 163, 163, 1);
+  -moz-box-shadow: 1px 1px 10px 0px rgba(163, 163, 163, 1);
+  box-shadow: 1px 1px 10px 0px rgba(163, 163, 163, 1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
-#landing > div:hover {
-  -webkit-box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.9);
-  -moz-box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.9);
-  box-shadow: 0px 1px 15px 1px rgba(0, 0, 0, 0.9);
+.latest-item-image {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#landing > div > div {
-  position: absolute;
-  left: 70%;
-  top: 25%;
+.latest-item-image span {
+  border-bottom: 1px solid #f1c40f;
 }
 
-#landing > div > div > p {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+.latest-items img {
+  margin: auto;
+  display: block;
 }
 
 footer {
@@ -314,17 +356,16 @@ div.item:hover {
 
 .item img {
   width: 100%;
-  max-width: 15rem;
-  height: 15rem;
+  max-width: 20vw;
   margin: auto;
 }
 
 div.item img.pokemon {
-  padding: 2rem;
+  padding: 1vw;
 }
 
 div.item img.item {
-  padding: 5.5rem;
+  padding: 4vw;
 }
 
 .item .name {

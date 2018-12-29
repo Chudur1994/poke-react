@@ -1,5 +1,5 @@
 import React from "react";
-import { capitalize } from "lodash";
+import { startCase } from "lodash";
 import { NavLink } from "react-router-dom";
 
 import Card from "./Card";
@@ -37,7 +37,7 @@ class Hero extends React.Component {
     let items = [];
     results.forEach(item => {
       items.push({
-        name: capitalize(item.name),
+        name: startCase(item.name),
         image:
           item.sprites.front_default !== undefined
             ? item.sprites.front_default
@@ -47,15 +47,15 @@ class Hero extends React.Component {
     return items;
   };
 
-  handleNext = () => {
+  nextImage = () => {
     const currentItem =
-      this.state.currentItem < this.state.items.length - 1
-        ? this.state.currentItem + 1
-        : this.state.currentItem;
+      this.state.currentItem === this.state.items.length - 1
+        ? 0
+        : this.state.currentItem + 1;
     this.setState({ currentItem });
   };
 
-  handlePrevious = () => {
+  prevImage = () => {
     const currentItem =
       this.state.currentItem > 0
         ? this.state.currentItem - 1
@@ -63,12 +63,12 @@ class Hero extends React.Component {
     this.setState({ currentItem });
   };
 
-  rotateImage = () => {
-    const currentItem =
-      this.state.currentItem === this.state.items.length - 1
-        ? 0
-        : this.state.currentItem + 1;
+  handleDot = currentItem => {
     this.setState({ currentItem });
+  };
+
+  rotateImage = () => {
+    this.nextImage();
 
     // recurse to repeat function
     setTimeout(() => {
@@ -85,9 +85,10 @@ class Hero extends React.Component {
             count={items.length}
             currentItem={currentItem}
             item={items[currentItem]}
-            handleNext={this.handleNext}
-            handlePrev={this.handlePrevious}
+            handleNext={this.nextImage}
+            handlePrev={this.prevImage}
             rotateImage={this.rotateImage}
+            handleDot={this.handleDot}
           />
         )}
       </div>
