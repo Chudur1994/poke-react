@@ -72,7 +72,7 @@ class LatestItems extends React.Component {
               <li>41 New Abilities</li>
             </ul>
             <NavLink
-              to="/catalogue/pokemon/generation/7"
+              to="/catalog/pokemon/generation/7"
               className="shop-latest-btn"
             >
               Shop Now

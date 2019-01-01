@@ -6,7 +6,7 @@ import Item from "./Item";
 
 const baseUrl = "https://pokeapi.co/api/v2/";
 
-class Catalogue extends React.Component {
+class ItemList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -61,7 +61,7 @@ class Catalogue extends React.Component {
   }
 
   getOffset = currentPage => {
-    return (currentPage - 1) * this.state.pagination.perPage; // increments by 15
+    return (currentPage - 1) * this.state.pagination.perPage;
   };
 
   initPagination = numPages => {
@@ -69,7 +69,6 @@ class Catalogue extends React.Component {
     pagination.numPages = numPages;
     pagination.currentPage = 1;
     this.setState({ pagination });
-    store.set("pagination", this.state.pagination);
   };
 
   makeUrl = params => {
@@ -115,57 +114,40 @@ class Catalogue extends React.Component {
     return url;
   };
 
-  fetchItems = (pagination, params) => {
-    const offset = this.getOffset(pagination.currentPage);
-    console.log(this.makeUrl(params));
-    fetch(baseUrl + this.makeUrl(params)) // API's limit and offset parameters do not work
-      .then(res => {
-        let data;
-        return res.json().then(result => {
-          switch (params.category) {
-            case "pokemon-species":
-              if (params.type !== undefined) {
-                data = result.pokemon_species;
-                data.sort((a, b) => {
-                  const arrayA = a.url.split("/");
-                  const indexA = arrayA[arrayA.length - 2];
-                  const arrayB = b.url.split("/");
-                  const indexB = arrayB[arrayB.length - 2];
+  fetchItems = async (pagination, params) => {
+    const result = await fetch(baseUrl + this.makeUrl(params)).then(res =>
+      res.json()
+    );
 
-                  return indexA - indexB;
-                });
-              } else {
-                data = result.results;
-              }
-              break;
-            case "item":
-              if (result.items !== undefined) {
-                data = result.items;
-              } else {
-                data = result.results;
-              }
-              break;
-            default:
-              break;
-          }
-          console.log(data);
-          const items = [];
-          for (
-            let index = offset, count = offset + pagination.perPage;
-            index < count;
-            index++
-          ) {
-            if (data[index] == null) {
-              break;
-            }
-            items.push(data[index]);
-          }
-          this.setState({ items, pagination, params });
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    let data; // holds data from api
+
+    switch (params.category) {
+      // pokemon-species returns an array of pokemons
+      case "pokemon-species":
+        // params.type is not undefined - means we are querying a specific generation of pokemons
+        // API returns the list of pokemons in a 'pokemon_species' object
+        data =
+          params.type !== undefined
+            ? result.pokemon_species.reverse()
+            : result.results;
+        break;
+      case "item":
+        data = result.items !== undefined ? result.items : result.results;
+        break;
+      default:
+        break;
+    }
+
+    const items = []; // list of items
+    const offset = this.getOffset(pagination.currentPage);
+    const count = offset + pagination.perPage;
+    for (let index = offset; index < count; index++) {
+      if (data[index] == null) {
+        break;
+      }
+      items.push(data[index]);
+    }
+    this.setState({ items, pagination, params });
   };
 
   updatePagination = (currentPage, pagesArr) => {
@@ -176,22 +158,29 @@ class Catalogue extends React.Component {
     this.fetchItems(pagination, this.state.params);
   };
 
+  handleItemClick = details => {
+    this.props.history.push({
+      pathname: `/product/${details.name}`,
+      state: { details }
+    });
+  };
+
   render() {
     const { category } = this.state.params;
 
     const items = this.state.items.map(item => {
       return (
         <Item
-          url={item.url}
+          item={item}
           key={item.name}
           category={category}
-          name={item.name}
+          itemClick={this.handleItemClick}
         />
       );
     });
 
     return (
-      <div className="catalogue">
+      <div>
         <div className="items-container">{items}</div>
         <hr />
         <Pagination
@@ -206,4 +195,4 @@ class Catalogue extends React.Component {
   }
 }
 
-export default Catalogue;
+export default ItemList;

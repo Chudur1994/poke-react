@@ -2,16 +2,18 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 
 import Landing from "./landing/Landing";
-import Catalogue from "./catalogue/Catalogue";
+import Catalog from "./catalog/Catalog";
+import Product from "./product/Product";
 
 const Main = () => {
   return (
     <Switch>
       <Route path="/" exact component={Landing} />
       <Route
-        path="/catalogue/:category/:type?/:typeOption?"
-        component={Catalogue}
+        path="/catalog/:category/:type?/:typeOption?"
+        component={Catalog}
       />
+      <Route path={"/product/:name"} component={Product} />
       />
     </Switch>
   );

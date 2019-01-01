@@ -321,7 +321,7 @@ footer {
   border: 2px solid #c0392b;
 }
 
-.catalogue {
+.catalog {
   margin-top: 2rem;
   width: 90%;
   margin-left: auto;
@@ -406,4 +406,128 @@ div.item img.item {
   margin-right: 0.2rem;
   color: white;
   border-radius: 3px;
+  border-bottom: 2px solid grey;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 5rem;
+}
+
+.product .name {
+  font-size: 3rem;
+  padding: 0.5rem;
+  border-bottom: 2px solid #c0392b;
+  font-family: "Raleway", sans-serif;
+}
+
+.product .details {
+  display: flex;
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+}
+
+.product .details .gallery-container {
+  position: relative;
+  width: 25%;
+}
+
+.image-container .product-image {
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.height-weight-type {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  top: 5%;
+  width: 100%;
+  font-size: 1.1rem;
+}
+
+.height-weight-type .height-weight {
+  background: #f1c40f;
+  padding: 2%;
+  align-self: flex-start;
+  border-bottom: 2px solid grey;
+  border-radius: 5px;
+}
+
+.height-weight-type .types .pokemon-type {
+  margin-bottom: 10%;
+}
+
+.product-gallery-images {
+  height: 20%;
+  display: flex;
+}
+
+.product-gallery-images .gallery-image {
+  width: 25%;
+  position: relative;
+}
+
+.product-gallery-images .gallery-image img {
+  width: 90%;
+  display: block;
+  margin: auto;
+  cursor: pointer;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+  margin-left: 7%;
+  width: 60%;
+}
+
+.product-details .details-title {
+  border-bottom: 1px solid grey;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.product-details .flavor-text {
+  margin-top: 2.5%;
+  font-size: 1.15rem;
+  padding: 2%;
+  -webkit-box-shadow: 1px 1px 10px 0px rgba(163, 163, 163, 1);
+  -moz-box-shadow: 1px 1px 10px 0px rgba(163, 163, 163, 1);
+  box-shadow: 1px 1px 10px 0px rgba(163, 163, 163, 1);
+  border-bottom: 2px solid grey;
+  font-style: italic;
+}
+
+.product-details .abilities {
+  margin-top: 2.5%;
+  border-left: 0.2rem solid #c0392b;
+}
+
+.product-details .abilities,
+.product-details .habitat {
+  padding: 0.5% 0;
+  font-size: 1.1rem;
+  padding-left: 0.25rem;
+}
+
+.product-details .habitat {
+  border-left: 0.2rem solid #f1c40f;
+}
+
+.abilities .ability {
+  border-bottom: 1px solid #c0392b;
+  cursor: pointer;
+  margin: 0 0.2rem;
+}
+
+.product-stats {
+  margin-right: auto;
+  margin-top: 2%;
 }
