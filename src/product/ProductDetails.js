@@ -1,7 +1,7 @@
 import React from "react";
 import StatChart from "./StatChart";
 
-const ProductDetails = ({ flavor_text, abilities, habitat, stats }) => {
+const ProductDetails = ({ flavor_text, abilities, habitat, stats, name }) => {
   return (
     <div className="product-details">
       <h5 className="details-title">Product Specifications</h5>
@@ -15,7 +15,7 @@ const ProductDetails = ({ flavor_text, abilities, habitat, stats }) => {
         ))}
       </div>
       <p className="habitat">Habitat - {habitat}</p>
-      <StatChart stats={stats} />
+      <StatChart name={name} stats={stats} />
     </div>
   );
 };

@@ -8,6 +8,10 @@ import "./App.css";
 import Footer from "./footer/Footer";
 
 class App extends Component {
+  state = {
+    cart: []
+  };
+
   render() {
     return (
       <div className="App">

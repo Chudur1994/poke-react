@@ -430,9 +430,14 @@ div.item img.item {
   font-family: "Roboto", sans-serif;
 }
 
+.product-left {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+}
+
 .product .details .gallery-container {
   position: relative;
-  width: 25%;
 }
 
 .image-container .product-image {
@@ -456,7 +461,6 @@ div.item img.item {
   padding: 2%;
   align-self: flex-start;
   border-bottom: 2px solid grey;
-  border-radius: 5px;
 }
 
 .height-weight-type .types .pokemon-type {
@@ -530,4 +534,47 @@ div.item img.item {
 .product-stats {
   margin-right: auto;
   margin-top: 2%;
+}
+
+.add-to-cart {
+  padding-top: 1rem;
+  border-top: 1px solid grey;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.add-to-cart label {
+  background: rgb(100, 100, 100);
+  color: white;
+  padding: 0.5rem;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-bottom: 2px solid grey;
+}
+
+.add-to-cart select {
+  width: 3rem;
+  border-radius: 0;
+  padding-left: 0.2rem;
+  font-size: 1rem;
+  border-bottom: 2px solid grey;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.add-to-cart button {
+  margin-left: 1rem;
+  padding: 0.25rem 0.5rem;
+  background: #27ae60;
+  border: none;
+  border-bottom: 2px solid gray;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.add-to-cart button:hover {
+  color: #27ae60;
+  background: white;
 }

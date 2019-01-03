@@ -158,10 +158,10 @@ class ItemList extends React.Component {
     this.fetchItems(pagination, this.state.params);
   };
 
-  handleItemClick = details => {
+  handleItemClick = (details, quantity) => {
     this.props.history.push({
       pathname: `/product/${details.name}`,
-      state: { details }
+      state: { details, quantity }
     });
   };
 

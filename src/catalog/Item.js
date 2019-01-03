@@ -8,7 +8,11 @@ const prices = ["10.99", "20.99", "30.99", "40.99", "50.99"];
 class Item extends React.Component {
   state = {
     types: [],
-    details: {}
+    details: {},
+    quantity: 99,
+    handleCartAdd: quantity => {
+      this.setState({ quantity: this.state.quantity - quantity });
+    }
   };
 
   componentDidMount() {
@@ -44,10 +48,12 @@ class Item extends React.Component {
     const { name } = this.props.item;
     let details = {};
     let result = await fetch(url).then(res => res.json());
-    details.flavor_text =
-      result.flavor_text_entries[
-        result.flavor_text_entries.length - 1
-      ].flavor_text;
+    details.flavor_text = result.flavor_text_entries.find(entry => {
+      if (entry.language.name === "en") {
+        return entry.flavor_text;
+      }
+    });
+    details.flavor_text = details.flavor_text.flavor_text;
     details.habitat =
       result.habitat === null ? "Unknown" : startCase(result.habitat.name);
     // get all varieties of the pokemon
@@ -73,8 +79,12 @@ class Item extends React.Component {
     this.setState({ details });
   };
 
+  handleCartAdd = quantity => {
+    this.setState({ quantity: this.state.quantity - quantity });
+  };
+
   handleClick = () => {
-    this.props.itemClick(this.state.details);
+    this.props.itemClick(this.state.details, this.state.quantity);
   };
 
   render() {
